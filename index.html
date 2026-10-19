@@ -1,0 +1,635 @@
+        <!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>উচ্চতর গণিত - অধ্যায় ১১ (স্থানাঙ্ক জ্যামিতি) ফাইনাল পরীক্ষা</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+        body { font-family: 'Hind Siliguri', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col items-center justify-start p-4 sm:p-6">
+
+    <div id="app" class="w-full max-w-4xl bg-slate-800 rounded-2xl shadow-2xl overflow-hidden border border-slate-700">
+        
+        <!-- স্বাগতম স্ক্রিন -->
+        <div id="welcome-screen" class="p-8 sm:p-12 text-center space-y-6">
+            <div class="inline-block p-4 bg-indigo-600/20 text-indigo-400 rounded-full mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-bold text-white">উচ্চতর গণিত: অধ্যায় ১১ (স্থানাঙ্ক জ্যামিতি)</h1>
+            <p class="text-slate-300 max-w-xl mx-auto text-lg">
+                বোর্ড পরীক্ষার সিলেবাস ও প্রশ্নপত্রের আদলে তৈরি সবচেয়ে কঠিন ৩০টি বহুনির্বাচনি প্রশ্ন। আপনার প্রস্তুতি যাচাই করতে ৩০ মিনিট সময় পাবেন। পরীক্ষা শেষে প্রতিটি প্রশ্নের সঠিক উত্তর ও ব্যাখ্যা দেখতে পাবেন।
+            </p>
+            <div class="bg-slate-700/50 p-4 rounded-xl max-w-md mx-auto grid grid-cols-2 gap-4 text-sm text-slate-300">
+                <div>প্রশ্ন সংখ্যা: <span class="font-bold text-indigo-400">৩০টি MCQ</span></div>
+                <div>সময়: <span class="font-bold text-indigo-400">৩০ মিনিট</span></div>
+            </div>
+            <button onclick="startExam()" class="mt-6 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-lg rounded-xl shadow-lg transition transform hover:-translate-y-0.5 cursor-pointer">
+                পরীক্ষা শুরু করুন
+            </button>
+        </div>
+
+        <!-- পরীক্ষা স্ক্রিন -->
+        <div id="exam-screen" class="hidden flex flex-col h-full">
+            <div class="bg-slate-700/80 px-6 py-4 flex flex-wrap justify-between items-center border-b border-slate-600">
+                <div class="text-lg font-semibold text-white">উচ্চতর গণিত ফাইনাল পরীক্ষা</div>
+                <div class="flex items-center space-x-6">
+                    <div id="timer" class="bg-rose-500/20 text-rose-300 font-mono text-lg px-4 py-1.5 rounded-lg border border-rose-500/30">
+                        ৩০:০০
+                    </div>
+                    <button onclick="submitExam()" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg shadow transition cursor-pointer">
+                        জমা দিন
+                    </button>
+                </div>
+            </div>
+
+            <div class="p-6 sm:p-8 space-y-6 flex-grow">
+                <div class="flex justify-between items-center text-slate-400 text-sm">
+                    <span id="question-counter">প্রশ্ন ১ / ৩০</span>
+                    <span id="question-tags" class="bg-indigo-900/60 text-indigo-300 px-3 py-1 rounded-full text-xs">কার্তেসীয় স্থানাঙ্ক</span>
+                </div>
+                
+                <div id="question-text" class="text-xl font-medium text-white leading-relaxed min-h-[80px]"></div>
+
+                <div id="options-container" class="grid grid-cols-1 gap-3 pt-2"></div>
+            </div>
+
+            <div class="bg-slate-700/50 px-6 py-4 flex justify-between items-center border-t border-slate-600">
+                <button onclick="prevQuestion()" id="prev-btn" class="px-5 py-2.5 bg-slate-600 hover:bg-slate-500 text-white rounded-lg transition disabled:opacity-40 cursor-pointer">
+                    পূর্ববর্তী
+                </button>
+                <div id="question-dots" class="hidden sm:flex space-x-1.5 overflow-x-auto max-w-xs py-1"></div>
+                <button onclick="nextQuestion()" id="next-btn" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition cursor-pointer">
+                    পরবর্তী
+                </button>
+            </div>
+        </div>
+
+        <!-- ফলাফল স্ক্রিন -->
+        <div id="result-screen" class="hidden p-6 sm:p-10 space-y-8">
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl font-bold text-white">পরীক্ষা সম্পন্ন হয়েছে!</h2>
+                <p id="score-summary" class="text-xl text-indigo-300 font-semibold"></p>
+                <div id="grade-badge" class="inline-block px-4 py-1.5 rounded-full text-sm font-bold mt-2"></div>
+            </div>
+
+            <div class="space-y-6 pt-4 border-t border-slate-700">
+                <h3 class="text-2xl font-bold text-white">উত্তরপত্র ও বিস্তারিত ব্যাখ্যা</h3>
+                <div id="review-container" class="space-y-6 max-h-[600px] overflow-y-auto pr-2"></div>
+            </div>
+
+            <div class="text-center pt-4">
+                <button onclick="restartExam()" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition cursor-pointer">
+                    পুনরায় পরীক্ষা দিন
+                </button>
+            </div>
+        </div>
+
+    </div>
+      <script>
+        const qPart1 = [
+            {
+                questionNumber: 1,
+                question: "x-অক্ষ হতে $(\\frac{5}{2}, \\frac{7}{3})$ বিন্দুর দূরত্ব কত একক?",
+                answerOptions: [
+                    { text: "$\\frac{5}{2}$", isCorrect: false, rationale: "এটি বিন্দুটির ভুজের সাংখ্যিক মান, যা y-অক্ষ হতে দূরত্ব নির্দেশ করে।" },
+                    { text: "$\\frac{7}{3}$", isCorrect: true, rationale: "x-অক্ষ হতে যেকোনো বিন্দুর দূরত্ব হলো ঐ বিন্দুর কোটির সাংখ্যিক মান, অর্থাৎ $|\\frac{7}{3}| = \\frac{7}{3}$।" },
+                    { text: "$\\frac{35}{6}$", isCorrect: false, rationale: "এটি স্থানাঙ্কদ্বয়ের গুণফল, দূরত্ব নয়।" },
+                    { text: "$\\frac{12}{5}$", isCorrect: false, rationale: "এটি ভুল মান।" }
+                ],
+                tags: ["coordinate", "distance"]
+            },
+            {
+                questionNumber: 2,
+                question: "y-অক্ষ থেকে $A(-2, -3)$ বিন্দুর দূরত্ব কত একক?",
+                answerOptions: [
+                    { text: "$3$", isCorrect: false, rationale: "এটি x-অক্ষ হতে দূরত্ব (কোটির সাংখ্যিক মান)।" },
+                    { text: "$2$", isCorrect: true, rationale: "y-অক্ষ হতে যেকোনো বিন্দুর দূরত্ব হলো ঐ বিন্দুটির ভুজের সাংখ্যিক মান, অর্থাৎ $|-2| = 2$ একক।" },
+                    { text: "$-2$", isCorrect: false, rationale: "দূরত্ব কখনোই ঋণাত্মক হতে পারে না।" },
+                    { text: "$\\sqrt{13}$", isCorrect: false, rationale: "এটি মূলবিন্দু হতে দূরত্ব।" }
+                ],
+                tags: ["coordinate", "distance"]
+            },
+            {
+                questionNumber: 3,
+                question: "মূলবিন্দু থেকে $(-7, 7)$ বিন্দুর দূরত্ব কত একক?",
+                answerOptions: [
+                    { text: "$7$", isCorrect: false, rationale: "এটি একক স্থানাঙ্কের মান।" },
+                    { text: "$7\\sqrt{2}$", isCorrect: true, rationale: "মূলবিন্দু হতে দূরত্ব $\\sqrt{(-7)^2 + 7^2} = \\sqrt{49 + 49} = \\sqrt{98} = 7\\sqrt{2}$।" },
+                    { text: "$49$", isCorrect: false, rationale: "বর্গমূল করা হয়নি।" },
+                    { text: "$14$", isCorrect: false, rationale: "এটি ভুল হিসাব।" }
+                ],
+                tags: ["origin", "distance"]
+            },
+            {
+                questionNumber: 4,
+                question: "যদি $P(1, -1)$ এবং $Q(3, 4)$ হয়, তবে $PQ$ এর দৈর্ঘ্য কত একক?",
+                answerOptions: [
+                    { text: "$\\sqrt{29}$", isCorrect: true, rationale: "$PQ = \\sqrt{(3-1)^2 + (4 - (-1))^2} = \\sqrt{2^2 + 5^2} = \\sqrt{4 + 25} = \\sqrt{29}$।" },
+                    { text: "$\\sqrt{13}$", isCorrect: false, rationale: "ভুল অন্তরফল ব্যবহার করা হয়েছে।" },
+                    { text: "$29$", isCorrect: false, rationale: "বর্গমূল বাদ দেওয়া হয়েছে।" },
+                    { text: "$5$", isCorrect: false, rationale: "এটি আংশিক হিসাব।" }
+                ],
+                tags: ["distance_formula"]
+            },
+            {
+                questionNumber: 5,
+                question: "$A(1, 1)$ ও $B(-1, -1)$ দুইটি বিন্দু হলে, $AB$ বাহু দ্বারা উৎপন্ন বর্গক্ষেত্রের কর্ণের দৈর্ঘ্য কত একক?",
+                answerOptions: [
+                    { text: "$2$", isCorrect: false, rationale: "এটি বাহুর দৈর্ঘ্যের ভুল মান।" },
+                    { text: "$4$", isCorrect: true, rationale: "বাহুর দৈর্ঘ্য $AB = \\sqrt{(-1-1)^2 + (-1-1)^2} = \\sqrt{8} = 2\\sqrt{2}$। বর্গক্ষেত্রের কর্ণের দৈর্ঘ্য = $\\sqrt{2} \\times \\text{বাহু} = \\sqrt{2} \\times 2\\sqrt{2} = 4$।" },
+                    { text: "$2\\sqrt{2}$", isCorrect: false, rationale: "এটি শুধু বাহুর দৈর্ঘ্য, কর্ণের দৈর্ঘ্য নয়।" },
+                    { text: "$8$", isCorrect: false, rationale: "এটি কর্ণের বর্গের মান।" }
+                ],
+                tags: ["square", "diagonal"]
+            },
+            {
+                questionNumber: 6,
+                question: "মূলবিন্দু থেকে $(-5, 5)$ ও $(5, p)$ বিন্দুদ্বয় সমদূরবর্তী হলে, $p$ এর মান কত?",
+                answerOptions: [
+                    { text: "$\\pm 5$", isCorrect: true, rationale: "মূলবিন্দু থেকে দূরত্ব সমান হওয়ায় $\\sqrt{(-5)^2 + 5^2} = \\sqrt{5^2 + p^2} \\Rightarrow 50 = 25 + p^2 \\Rightarrow p^2 = 25 \\Rightarrow p = \\pm 5$।" },
+                    { text: "$5$", isCorrect: false, rationale: "ঋণাত্মক মানটিও সমভাবে গ্রহণযোগ্য।" },
+                    { text: "$-5$", isCorrect: false, rationale: "ধনাত্মক মানটিও সঠিক।" },
+                    { text: "$25$", isCorrect: false, rationale: "এটি ভুল।" }
+                ],
+                tags: ["equidistant", "parameter"]
+            },
+            {
+                questionNumber: 7,
+                question: "অক্ষদ্বয় দ্বারা $(-2, 0)$ ও $(0, 2)$ বিন্দুগামী রেখার খণ্ডিত অংশের দৈর্ঘ্য কত?",
+                answerOptions: [
+                    { text: "$2$", isCorrect: false, rationale: "ভুল মান।" },
+                    { text: "$2\\sqrt{2}$", isCorrect: true, rationale: "খণ্ডিতাংশের দুই প্রান্তবিন্দু $(-2, 0)$ ও $(0, 2)$ এর মধ্যবর্তী দূরত্ব $\\sqrt{(0 - (-2))^2 + (2-0)^2} = \\sqrt{4+4} = \\sqrt{8} = 2\\sqrt{2}$।" },
+                    { text: "$4$", isCorrect: false, rationale: "ভুল হিসাব।" },
+                    { text: "$8$", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["intercept", "distance"]
+            },
+            {
+                questionNumber: 8,
+                question: "$2x + 3y - 12 = 0$ সরলরেখাটি x-অক্ষকে কোন বিন্দুতে ছেদ করে?",
+                answerOptions: [
+                    { text: "$(0, 4)$", isCorrect: false, rationale: "এটি y-অক্ষের ছেদবিন্দু।" },
+                    { text: "$(6, 0)$", isCorrect: true, rationale: "x-অক্ষের উপর y = 0 বসিয়ে পাই, $2x + 3(0) - 12 = 0 \\Rightarrow 2x = 12 \\Rightarrow x = 6$। সুতরাং বিন্দুটি $(6, 0)$।" },
+                    { text: "$(0, 6)$", isCorrect: false, rationale: "স্থানাঙ্কের ক্রম ভুল।" },
+                    { text: "(-6, 0)", isCorrect: false, rationale: "চিহ্নের ভুল।" }
+                ],
+                tags: ["straight_line", "intercept"]
+            },
+            {
+                questionNumber: 9,
+                question: "$A(1, 3)$, $B(3, 2)$ এবং $C(-4, 2)$ শীর্ষবিশিষ্ট $\\triangle ABC$ এর ক্ষেত্রফল কত বর্গ একক?",
+                answerOptions: [
+                    { text: "$7.5$", isCorrect: false, rationale: "ভুল গণনা।" },
+                    { text: "$15$", isCorrect: true, rationale: "সঠিক স্থানাঙ্ক সূত্রানুযায়ী ক্ষেত্রফল ১৫ বর্গ একক।" },
+                    { text: "$30$", isCorrect: false, rationale: "দুই দ্বারা ভাগ করা হয়নি।" },
+                    { text: "$6$", isCorrect: false, rationale: "ভুল মান।" }
+                ],
+                tags: ["triangle", "area"]
+            },
+            {
+                questionNumber: 10,
+                question: "$3x + 4y - 12 = 0$ রেখাটি অক্ষদ্বয়ের সাথে যে ত্রিভুজ গঠন করে তার ক্ষেত্রফল কত?",
+                answerOptions: [
+                    { text: "$6$", isCorrect: true, rationale: "x-অক্ষের ছেদবিন্দু $(4, 0)$ এবং y-অক্ষের ছেদবিন্দু $(0, 3)$। ক্ষেত্রফল = $\\frac{1}{2} \\times \\text{ভূমি} \\times \\text{উচ্চতা} = \\frac{1}{2} \\times 4 \\times 3 = 6$ বর্গ একক।" },
+                    { text: "$12$", isCorrect: false, rationale: "অর্ধেক করা হয়নি।" },
+                    { text: "$3$", isCorrect: false, rationale: "অতিরিক্ত ভাগ করা হয়েছে।" },
+                    { text: "$24$", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["area", "intercept"]
+            }
+        ];
+          const qPart2 = [
+            {
+                questionNumber: 11,
+                question: "মূলবিন্দু থেকে $(0, -7)$ বিন্দুর দূরত্ব কত?",
+                answerOptions: [
+                    { text: "$-7$", isCorrect: false, rationale: "দূরত্ব ঋণাত্মক হতে পারে না।" },
+                    { text: "$7$", isCorrect: true, rationale: "মূলবিন্দু হতে দূরত্ব $|-7| = 7$ একক।" },
+                    { text: "$\\sqrt{7}$", isCorrect: false, rationale: "বর্গমূলের ভুল প্রয়োগ।" },
+                    { text: "$49$", isCorrect: false, rationale: "এটি বর্গের মান।" }
+                ],
+                tags: ["distance", "origin"]
+            },
+            {
+                questionNumber: 12,
+                question: "$A(k, 4)$ থেকে মূলবিন্দুর দূরত্ব $5$ একক হলে, $k$ এর ধনাত্মক মান কত?",
+                answerOptions: [
+                    { text: "$3$", isCorrect: true, rationale: "$\\sqrt{k^2 + 4^2} = 5 \\Rightarrow k^2 + 16 = 25 \\Rightarrow k^2 = 9 \\Rightarrow k = \\pm 3$। ধনাত্মক মানটি ৩।" },
+                    { text: "$4$", isCorrect: false, rationale: "ভুল মান।" },
+                    { text: "$5$", isCorrect: false, rationale: "এটি দূরত্বের মান।" },
+                    { text: "$9$", isCorrect: false, rationale: "এটি $k^2$ এর মান।" }
+                ],
+                tags: ["distance", "parameter"]
+            },
+            {
+                questionNumber: 13,
+                question: "একটি ত্রিভুজের বাহুর দৈর্ঘ্য যথাক্রমে $3$, $4$, $5$ একক হলে, এর ক্ষেত্রফল কত?",
+                answerOptions: [
+                    { text: "$6$", isCorrect: true, rationale: "এটি একটি সমকোণী ত্রিভুজ ($3^2 + 4^2 = 5^2$)। ক্ষেত্রফল = $\\frac{1}{2} \\times 3 \\times 4 = 6$ বর্গ একক।" },
+                    { text: "$12$", isCorrect: false, rationale: "অর্ধেক করা হয়নি।" },
+                    { text: "$10$", isCorrect: false, rationale: "পরিসীমার সাথে গুলিয়ে ফেলা হয়েছে।" },
+                    { text: "$7.5$", isCorrect: false, rationale: "ভুল হিসাব।" }
+                ],
+                tags: ["triangle", "area"]
+            },
+            {
+                questionNumber: 14,
+                question: "$y = 2x - 3$ সরলরেখার ঢাল কত?",
+                answerOptions: [
+                    { text: "$-3$", isCorrect: false, rationale: "এটি y-অক্ষের ছেদক $c$ এর মান।" },
+                    { text: "$2$", isCorrect: true, rationale: "$y = mx + c$ সমীকরণের সাথে তুলনা করে পাই ঢাল $m = 2$।" },
+                    { text: "$-2$", isCorrect: false, rationale: "চিহ্নের ভুল।" },
+                    { text: "$\\frac{3}{2}$", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["slope", "straight_line"]
+            },
+            {
+                questionNumber: 15,
+                question: "$(2, 3)$ এবং $(4, 5)$ বিন্দুগামী সরলরেখার ঢাল কত?",
+                answerOptions: [
+                    { text: "$1$", isCorrect: true, rationale: "ঢাল $m = \\frac{5 - 3}{4 - 2} = \\frac{2}{2} = 1$।" },
+                    { text: "$-1$", isCorrect: false, rationale: "চিহ্নের ভুল।" },
+                    { text: "$2$", isCorrect: false, rationale: "ভুল হিসাব।" },
+                    { text: "$\\frac{1}{2}$", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["slope"]
+            },
+            {
+                questionNumber: 16,
+                question: "$-\\sqrt{3}$ ঢালবিশিষ্ট সরলরেখাটি x-অক্ষের ধনাত্মক দিকের সাথে কত ডিগ্রি কোণ উৎপন্ন করে?",
+                answerOptions: [
+                    { text: "$60^{\circ}$", isCorrect: false, rationale: "এটি $\\sqrt{3}$ ঢালের জন্য প্রযোজ্য।" },
+                    { text: "$120^{\circ}$", isCorrect: true, rationale: "$\\tan \\theta = -\\sqrt{3} = -\\tan 60^{\circ} = \\tan(180^{\circ} - 60^{\circ}) = \\tan 120^{\circ}$। সুতরাং $\\theta = 120^{\circ}$।" },
+                    { text: "$150^{\circ}$", isCorrect: false, rationale: "ভুল কোণ।" },
+                    { text: "$30^{\circ}$", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["slope", "angle"]
+            },
+            {
+                questionNumber: 17,
+                question: "$P(1, -1)$, $Q(2, 2)$ এবং $R(4, a)$ বিন্দু তিনটি সমরেখ হলে, $a$ এর মান কত?",
+                answerOptions: [
+                    { text: "$6$", isCorrect: false, rationale: "ভুল হিসাব।" },
+                    { text: "$8$", isCorrect: true, rationale: "PQ এর ঢাল = QR এর ঢাল $\\Rightarrow \\frac{2 - (-1)}{2 - 1} = \\frac{a - 2}{4 - 2} \\Rightarrow \\frac{3}{1} = \\frac{a - 2}{2} \\Rightarrow a - 2 = 6 \\Rightarrow a = 8$।" },
+                    { text: "$4$", isCorrect: false, rationale: "ভুল।" },
+                    { text: "$2$", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["collinear", "slope"]
+            },
+            {
+                questionNumber: 18,
+                question: "$x - 3y = 15$ এবং $3x + y = 3$ রেখাদ্বয়ের ঢালদ্বয়ের গুণফল কত?",
+                answerOptions: [
+                    { text: "$1$", isCorrect: false, rationale: "ভুল।" },
+                    { text: "$-1$", isCorrect: true, rationale: "প্রথম রেখার ঢাল $m_1 = \\frac{1}{3}$ এবং দ্বিতীয় রেখার ঢাল $m_2 = -3$। গুণফল = $\\frac{1}{3} \\times (-3) = -1$।" },
+                    { text: "$\\frac{1}{3}$", isCorrect: false, rationale: "ভুল।" },
+                    { text: "$3$", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["slope", "perpendicular"]
+            },
+            {
+                questionNumber: 19,
+                question: "ঢাল ঋণাত্মক হলে সরলরেখাটি x-অক্ষের ধনাত্মক দিকের সাথে যে কোণ উৎপন্ন করে তা হলো—",
+                answerOptions: [
+                    { text: "সূক্ষ্মকোণ", isCorrect: false, rationale: "ধনাত্মক ঢালের জন্য সূক্ষ্মকোণ হয়।" },
+                    { text: "স্থূলকোণ", isCorrect: true, rationale: "ঢাল ঋণাত্মক হওয়ার অর্থ $\\tan \\theta < 0$, যা নির্দেশ করে কোণটি $90^{\circ}$ অপেক্ষা বড় অর্থাৎ স্থূলকোণ।" },
+                    { text: "সমকোণ", isCorrect: false, rationale: "সমকোণে ঢাল অসংজ্ঞায়িত।" },
+                    { text: "সরলকোণ", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["slope", "angle_nature"]
+            },
+            {
+                questionNumber: 20,
+                question: "$A(-5, 4)$ ও $B(3, 7)$ বিন্দুগামী রেখার উপর লম্ব রেখার ঢাল কত?",
+                answerOptions: [
+                    { text: "$\\frac{3}{8}$", isCorrect: false, rationale: "এটি মূল রেখার ঢাল।" },
+                    { text: "$-\\frac{8}{3}$", isCorrect: true, rationale: "মূল রেখার ঢাল $m_1 = \\frac{7 - 4}{3 - (-5)} = \\frac{3}{8}$। লম্ব রেখার ঢাল $m_2 = -\\frac{1}{m_1} = -\\frac{8}{3}$।" },
+                    { text: "$\\frac{8}{3}$", isCorrect: false, rationale: "চিহ্নের ভুল।" },
+                    { text: "$-\\frac{3}{8}$", isCorrect: false, rationale: "ব্যস্ত করা হয়নি।" }
+                ],
+                tags: ["perpendicular", "slope"]
+            }
+        ];
+          const qPart3 = [
+            {
+                questionNumber: 21,
+                question: "চতুর্ভুজের চারটি শীর্ষবিন্দু দ্বারা ক্ষেত্রফল নির্ণয়ের সময় বিন্দুগুলোকে কিভাবে বিবেচনা করা হয়?",
+                answerOptions: [
+                    { text: "ঘড়ির কাঁটার দিকে", isCorrect: false, rationale: "এতে ক্ষেত্রফল ঋণাত্মক বা ভুল আসতে পারে।" },
+                    { text: "ঘড়ির কাঁটার বিপরীত দিকে", isCorrect: true, rationale: "জ্যামিতিক নিয়মে ক্ষেত্রফল সঠিকভাবে পেতে বিন্দুগুলোকে সর্বদা ঘড়ির কাঁটার বিপরীত দিকে (Counter-clockwise) সাজাতে হয়।" },
+                    { text: "যেকোনো অর্ডারে", isCorrect: false, rationale: "অর্ডার উল্টো হলে মান ভুল হবে।" },
+                    { text: "ক্রমানুসারে এলোমেলো", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["polygon", "area_rule"]
+            },
+            {
+                questionNumber: 22,
+                question: "যদি কোনো বিন্দুর ভুজ শূন্য হয়, তবে বিন্দুটি কোথায় অবস্থিত?",
+                answerOptions: [
+                    { text: "x-অক্ষের উপর", isCorrect: false, rationale: "x-অক্ষের উপর কোটি শূন্য হয়।" },
+                    { text: "y-অক্ষের উপর", isCorrect: true, rationale: "y-অক্ষের উপর অবস্থিত যেকোনো বিন্দুর ভুজ শূন্য হয় (যেমন: $(0, y)$)।" },
+                    { text: "মূলবিন্দুতে", isCorrect: false, rationale: "মূলবিন্দুতে ভুজ ও কোটি উভয়ই শূন্য।" },
+                    { text: "প্রথম চতুর্ভাগে", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["coordinate_axis"]
+            },
+            {
+                questionNumber: 23,
+                question: "$(2, 3)$ বিন্দুটি কোন চতুর্ভাগে অবস্থিত?",
+                answerOptions: [
+                    { text: "প্রথম চতুর্ভাগ", isCorrect: true, rationale: "প্রথম চতুর্ভাগে ভুজ ও কোটি উভয় স্থানাঙ্কই ধনাত্মক (+, +)।" },
+                    { text: "দ্বিতীয় চতুর্ভাগ", isCorrect: false, rationale: "দ্বিতীয় চতুর্ভাগে ভুজ ঋণাত্মক ও কোটি ধনাত্মক।" },
+                    { text: "তৃতীয় চতুর্ভাগ", isCorrect: false, rationale: "তৃতীয় চতুর্ভাগে উভয়ই ঋণাত্মক।" },
+                    { text: "চতুর্থ চতুর্ভাগ", isCorrect: false, rationale: "চতুর্থ চতুর্ভাগে ভুজ ধনাত্মক ও কোটি ঋণাত্মক।" }
+                ],
+                tags: ["quadrant"]
+            },
+            {
+                questionNumber: 24,
+                question: "$2x - 5y - 10 = 0$ সরলরেখার ঢাল কত?",
+                answerOptions: [
+                    { text: "$-\\frac{2}{5}$", isCorrect: false, rationale: "চিহ্নের ভুল।" },
+                    { text: "$\\frac{2}{5}$", isCorrect: true, rationale: "$5y = 2x - 10 \\Rightarrow y = \\frac{2}{5}x - 2$। সুতরাং ঢাল $m = \\frac{2}{5}$।" },
+                    { text: "$-\\frac{5}{2}$", isCorrect: false, rationale: "উল্টো মান।" },
+                    { text: "$\\frac{5}{2}$", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["slope"]
+            },
+            {
+                questionNumber: 25,
+                question: "কোনো ত্রিভুজের তিনটি বাহুর দৈর্ঘ্য সমান হলে তাকে কী বলে?",
+                answerOptions: [
+                    { text: "সমদ্বিবাহু ত্রিভুজ", isCorrect: false, rationale: "এতে দুটি বাহু সমান থাকে।" },
+                    { text: "সমবাহু ত্রিভুজ", isCorrect: true, rationale: "যে ত্রিভুজের তিনটি বাহুই সমান, তাকে সমবাহু ত্রিভুজ বলে।" },
+                    { text: "বিষমবাহু ত্রিভুজ", isCorrect: false, rationale: "এতে কোনো বাহুই সমান নয়।" },
+                    { text: "সমকোণী ত্রিভুজ", isCorrect: false, rationale: "এটি কোণের উপর ভিত্তি করে।" }
+                ],
+                tags: ["triangle_types"]
+            },
+            {
+                questionNumber: 26,
+                question: "$(-3, 2)$ ও $(3, 2)$ বিন্দুগামী রেখার ঢাল কত?",
+                answerOptions: [
+                    { text: "$\\frac{2}{3}$", isCorrect: false, rationale: "ভুল।" },
+                    { text: "$0$", isCorrect: true, rationale: "ঢাল $m = \\frac{2 - 2}{3 - (-3)} = \\frac{0}{6} = 0$। এটি x-অক্ষের সমান্তরাল একটি সরলরেখা।" },
+                    { text: "অসংজ্ঞায়িত", isCorrect: false, rationale: "এটি y-অক্ষের সমান্তরালের জন্য।" },
+                    { text: "$1$", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["slope", "horizontal_line"]
+            },
+            {
+                questionNumber: 27,
+                question: "$A(1, 2)$ ও $B(3, 5)$ বিন্দু দুইটির মধ্যবর্তী দূরত্ব কত?",
+                answerOptions: [
+                    { text: "$\\sqrt{5}$", isCorrect: false, rationale: "ভুল হিসাব।" },
+                    { text: "$\\sqrt{13}$", isCorrect: true, rationale: "দূরত্ব = $\\sqrt{(3-1)^2 + (5-2)^2} = \\sqrt{2^2 + 3^2} = \\sqrt{4 + 9} = \\sqrt{13}$।" },
+                    { text: "$13$", isCorrect: false, rationale: "বর্গমূল করা হয়নি।" },
+                    { text: "$5$", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["distance"]
+            },
+            {
+                questionNumber: 28,
+                question: "মূলবিন্দু থেকে $P(-2, 2)$ বিন্দুর দূরত্ব কত একক?",
+                answerOptions: [
+                    { text: "$2$", isCorrect: false, rationale: "ভুল।" },
+                    { text: "$2\\sqrt{2}$", isCorrect: true, rationale: "দূরত্ব = $\\sqrt{(-2 - 0)^2 + (2 - 0)^2} = \\sqrt{4 + 4} = \\sqrt{8} = 2\\sqrt{2}$।" },
+                    { text: "$4$", isCorrect: false, rationale: "ভুল।" },
+                    { text: "$\\sqrt{2}$", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["distance", "origin"]
+            },
+            {
+                questionNumber: 29,
+                question: "একটি সরলরেখা $(2, 2)$ এবং $(4, 1)$ বিন্দু দিয়ে যায় এবং রেখাটির ঢাল যদি $3$ হয়, তবে বিন্দু দুটির সমীকরণ অনুযায়ী অজ্ঞাত মান বের করার ক্ষেত্রে ঢাল $\\frac{t - 2}{2} = 3$ হলে $t$ এর মান কত?",
+                answerOptions: [
+                    { text: "$6$", isCorrect: false, rationale: "এটি আংশিক মান।" },
+                    { text: "$8$", isCorrect: true, rationale: "$\\frac{t - 2}{4 - 2} = 3 \\Rightarrow \\frac{t - 2}{2} = 3 \\Rightarrow t - 2 = 6 \\Rightarrow t = 8$।" },
+                    { text: "$4$", isCorrect: false, rationale: "ভুল।" },
+                    { text: "$10$", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["slope", "parameter"]
+            },
+            {
+                questionNumber: 30,
+                question: "কোনো সরলরেখার ঢাল $m = \\tan \\theta$ হলে, রেখাটি x-অক্ষের সমান্তরাল হলে ঢাল কত হবে?",
+                answerOptions: [
+                    { text: "$1$", isCorrect: false, rationale: "এটি ৪৫° কোণের জন্য।" },
+                    { text: "$0$", isCorrect: true, rationale: "x-অক্ষের সাথে সমান্তরাল রেখা কোনো কোণ উৎপন্ন করে না, তাই $\\theta = 0^{\circ}$ এবং $\\tan 0^{\circ} = 0$।" },
+                    { text: "অসংজ্ঞায়িত", isCorrect: false, rationale: "এটি y-অক্ষের সমান্তরালের জন্য।" },
+                    { text: "$-1$", isCorrect: false, rationale: "ভুল।" }
+                ],
+                tags: ["slope", "parallel"]
+            }
+        ];
+                const questionsData = [...qPart1, ...qPart2, ...qPart3];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = new Array(questionsData.length).fill(null);
+        let timerInterval = null;
+        let timeLeft = 30 * 60;
+
+        function startExam() {
+            document.getElementById('welcome-screen').classList.add('hidden');
+            document.getElementById('exam-screen').classList.remove('hidden');
+            initDots();
+            loadQuestion(0);
+            startTimer();
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    submitExam();
+                    return;
+                }
+                timeLeft--;
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                document.getElementById('timer').innerText = 
+                    `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        function initDots() {
+            const container = document.getElementById('question-dots');
+            container.innerHTML = '';
+            questionsData.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.id = `dot-${index}`;
+                dot.innerText = index + 1;
+                dot.className = `w-7 h-7 rounded-full text-xs font-bold transition cursor-pointer ${
+                    index === 0 ? 'bg-indigo-600 text-white' : 'bg-slate-600 text-slate-300 hover:bg-slate-500'
+                }`;
+                dot.onclick = () => jumpToQuestion(index);
+                container.appendChild(dot);
+            });
+        }
+
+        function updateDots() {
+            questionsData.forEach((_, index) => {
+                const dot = document.getElementById(`dot-${index}`);
+                if (index === currentQuestionIndex) {
+                    dot.className = "w-7 h-7 rounded-full text-xs font-bold bg-indigo-600 text-white ring-2 ring-indigo-400";
+                } else if (userAnswers[index] !== null) {
+                    dot.className = "w-7 h-7 rounded-full text-xs font-bold bg-emerald-700 text-white";
+                } else {
+                    dot.className = "w-7 h-7 rounded-full text-xs font-bold bg-slate-600 text-slate-300 hover:bg-slate-500";
+                }
+            });
+        }
+
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+            const q = questionsData[index];
+            
+            document.getElementById('question-counter').innerText = `প্রশ্ন ${index + 1} / ${questionsData.length}`;
+            document.getElementById('question-tags').innerText = q.tags.join(', ');
+            document.getElementById('question-text').innerHTML = q.question;
+            
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            q.answerOptions.forEach((opt, optIdx) => {
+                const isSelected = userAnswers[index] === optIdx;
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-xl border transition cursor-pointer flex items-center space-x-3 ${
+                    isSelected 
+                        ? 'bg-indigo-600/30 border-indigo-500 text-white shadow-md' 
+                        : 'bg-slate-700/50 border-slate-600 text-slate-200 hover:bg-slate-700 hover:border-slate-500'
+                }`;
+                btn.innerHTML = `
+                    <span class="w-6 h-6 flex items-center justify-center rounded-full border border-slate-400 text-xs font-bold ${isSelected ? 'bg-indigo-600 border-indigo-500 text-white' : 'text-slate-400'}">${String.fromCharCode(65 + optIdx)}</span>
+                    <span class="flex-grow">${opt.text}</span>
+                `;
+                btn.onclick = () => selectOption(index, optIdx);
+                optionsContainer.appendChild(btn);
+            });
+
+            document.getElementById('prev-btn').disabled = index === 0;
+            document.getElementById('next-btn').innerText = index === questionsData.length - 1 ? "শেষ করুন" : "পরবর্তী";
+            
+            updateDots();
+            
+            if (window.MathJax) {
+                MathJax.typeset();
+            }
+        }
+
+        function selectOption(qIdx, optIdx) {
+            userAnswers[qIdx] = optIdx;
+            loadQuestion(qIdx);
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < questionsData.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            } else {
+                submitExam();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                loadQuestion(currentQuestionIndex - 1);
+            }
+        }
+
+        function jumpToQuestion(index) {
+            loadQuestion(index);
+        }
+
+        function submitExam() {
+            clearInterval(timerInterval);
+            document.getElementById('exam-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+
+            let score = 0;
+            questionsData.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                if (userAns !== null && q.answerOptions[userAns].isCorrect) {
+                    score++;
+                }
+            });
+
+            const percentage = Math.round((score / questionsData.length) * 100);
+            document.getElementById('score-summary').innerText = `আপনার প্রাপ্ত স্কোর: ${score} / ${questionsData.length} (${percentage}%)`;
+
+            const gradeBadge = document.getElementById('grade-badge');
+            if (percentage >= 80) {
+                gradeBadge.innerText = "গ্রেড: A+ (চমৎকার প্রস্তুতি!)";
+                gradeBadge.className = "inline-block px-4 py-1.5 rounded-full text-sm font-bold mt-2 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+            } else if (percentage >= 60) {
+                gradeBadge.innerText = "গ্রেড: B (ভালো প্রস্তুতি)";
+                gradeBadge.className = "inline-block px-4 py-1.5 rounded-full text-sm font-bold mt-2 bg-amber-500/20 text-amber-300 border border-amber-500/30";
+            } else {
+                gradeBadge.innerText = "গ্রেড: পুনর্চেষ্টা প্রয়োজন";
+                gradeBadge.className = "inline-block px-4 py-1.5 rounded-full text-sm font-bold mt-2 bg-rose-500/20 text-rose-300 border border-rose-500/30";
+            }
+
+            const reviewContainer = document.getElementById('review-container');
+            reviewContainer.innerHTML = '';
+
+            questionsData.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const isCorrect = userAns !== null && q.answerOptions[userAns].isCorrect;
+                
+                const card = document.createElement('div');
+                card.className = `p-5 rounded-xl border ${isCorrect ? 'bg-emerald-950/20 border-emerald-800/50' : 'bg-rose-950/20 border-rose-800/50'}`;
+                
+                let optionsHtml = '';
+                q.answerOptions.forEach((opt, optIdx) => {
+                    let badgeClass = 'text-slate-300';
+                    if (opt.isCorrect) {
+                        badgeClass = 'text-emerald-400 font-bold';
+                    } else if (userAns === optIdx && !opt.isCorrect) {
+                        badgeClass = 'text-rose-400 line-through';
+                    }
+                    optionsHtml += `<div class="text-sm py-1 flex items-start space-x-2">
+                        <span class="font-semibold">${String.fromCharCode(65 + optIdx)}.</span>
+                        <span class="${badgeClass}">${opt.text}</span>
+                        ${opt.isCorrect ? '<span class="text-xs bg-emerald-600/30 text-emerald-300 px-2 py-0.5 rounded ml-2">সঠিক উত্তর</span>' : ''}
+                    </div>`;
+                });
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-sm font-bold text-slate-400">প্রশ্ন ${idx + 1}</span>
+                        <span class="text-xs px-2.5 py-1 rounded-full font-semibold ${isCorrect ? 'bg-emerald-500/20 text-emerald-300' : 'bg-rose-500/20 text-rose-300'}">
+                            ${isCorrect ? 'সঠিক' : 'ভুল / অনুত্তীর্ণ'}
+                        </span>
+                    </div>
+                    <div class="text-base font-medium text-white mb-3">${q.question}</div>
+                    <div class="space-y-1 mb-3 bg-slate-900/50 p-3 rounded-lg">${optionsHtml}</div>
+                    <div class="text-xs text-slate-300 bg-slate-800/80 p-3 rounded-lg border border-slate-700">
+                        <strong class="text-indigo-400">ব্যাখ্যা:</strong> ${q.answerOptions.find(o => o.isCorrect)?.rationale || 'ব্যাখ্যা উপলব্ধ নেই।'}
+                    </div>
+                `;
+                reviewContainer.appendChild(card);
+            });
+
+            if (window.MathJax) {
+                MathJax.typeset();
+            }
+        }
+
+        function restartExam() {
+            currentQuestionIndex = 0;
+            userAnswers = new Array(questionsData.length).fill(null);
+            timeLeft = 30 * 60;
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('welcome-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
+  
