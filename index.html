@@ -1,4 +1,4 @@
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
@@ -92,206 +92,206 @@
             </div>
         </div>
 
-    </div>
-      <script>
-        const qPart1 = [
+        </div>
+            <script>
+        const questionsData = [
             {
                 questionNumber: 1,
-                question: "x-অক্ষ হতে $(\\frac{5}{2}, \\frac{7}{3})$ বিন্দুর দূরত্ব কত একক?",
+                question: "x-অক্ষ হতে (\\frac{5}{2}, \\frac{7}{3}) বিন্দুর দূরত্ব কত একক?",
                 answerOptions: [
-                    { text: "$\\frac{5}{2}$", isCorrect: false, rationale: "এটি বিন্দুটির ভুজের সাংখ্যিক মান, যা y-অক্ষ হতে দূরত্ব নির্দেশ করে।" },
-                    { text: "$\\frac{7}{3}$", isCorrect: true, rationale: "x-অক্ষ হতে যেকোনো বিন্দুর দূরত্ব হলো ঐ বিন্দুর কোটির সাংখ্যিক মান, অর্থাৎ $|\\frac{7}{3}| = \\frac{7}{3}$।" },
-                    { text: "$\\frac{35}{6}$", isCorrect: false, rationale: "এটি স্থানাঙ্কদ্বয়ের গুণফল, দূরত্ব নয়।" },
-                    { text: "$\\frac{12}{5}$", isCorrect: false, rationale: "এটি ভুল মান।" }
+                    { text: "\\frac{5}{2}", isCorrect: false, rationale: "Eta bindutir vhujer sankhyik man, ja y-akhso hote durutto nirdes kore." },
+                    { text: "\\frac{7}{3}", isCorrect: true, rationale: "x-akhso hote jekono bindur durutto holo oi bindur kotir sankhyik man[span_0](start_span)[span_0](end_span)." },
+                    { text: "\\frac{35}{6}", isCorrect: false, rationale: "Eta sthanankodwoyer gunfol, durutto noy." },
+                    { text: "\\frac{12}{5}", isCorrect: false, rationale: "Eta vul man." }
                 ],
                 tags: ["coordinate", "distance"]
             },
             {
                 questionNumber: 2,
-                question: "y-অক্ষ থেকে $A(-2, -3)$ বিন্দুর দূরত্ব কত একক?",
+                question: "y-অক্ষ থেকে A(-2, -3) বিন্দুর দূরত্ব কত একক?",
                 answerOptions: [
-                    { text: "$3$", isCorrect: false, rationale: "এটি x-অক্ষ হতে দূরত্ব (কোটির সাংখ্যিক মান)।" },
-                    { text: "$2$", isCorrect: true, rationale: "y-অক্ষ হতে যেকোনো বিন্দুর দূরত্ব হলো ঐ বিন্দুটির ভুজের সাংখ্যিক মান, অর্থাৎ $|-2| = 2$ একক।" },
-                    { text: "$-2$", isCorrect: false, rationale: "দূরত্ব কখনোই ঋণাত্মক হতে পারে না।" },
-                    { text: "$\\sqrt{13}$", isCorrect: false, rationale: "এটি মূলবিন্দু হতে দূরত্ব।" }
+                    { text: "3", isCorrect: false, rationale: "Eta x-akhso hote durutto." },
+                    { text: "2", isCorrect: true, rationale: "y-akhso hote A(-2,-3) bindur durutto bindutir vhujer sankhyik maner soman, arthat |-2| = 2 ekok[span_1](start_span)[span_1](end_span)." },
+                    { text: "-2", isCorrect: false, rationale: "Durutto kokhono rinattok hote pare na." },
+                    { text: "\\sqrt{13}", isCorrect: false, rationale: "Eta mulbindu hote durutto." }
                 ],
                 tags: ["coordinate", "distance"]
             },
             {
                 questionNumber: 3,
-                question: "মূলবিন্দু থেকে $(-7, 7)$ বিন্দুর দূরত্ব কত একক?",
+                question: "মূলবিন্দু থেকে (-7, 7) বিন্দুর দূরত্ব কত একক?",
                 answerOptions: [
-                    { text: "$7$", isCorrect: false, rationale: "এটি একক স্থানাঙ্কের মান।" },
-                    { text: "$7\\sqrt{2}$", isCorrect: true, rationale: "মূলবিন্দু হতে দূরত্ব $\\sqrt{(-7)^2 + 7^2} = \\sqrt{49 + 49} = \\sqrt{98} = 7\\sqrt{2}$।" },
-                    { text: "$49$", isCorrect: false, rationale: "বর্গমূল করা হয়নি।" },
-                    { text: "$14$", isCorrect: false, rationale: "এটি ভুল হিসাব।" }
+                    { text: "7", isCorrect: false, rationale: "Eta ekok sthananker man." },
+                    { text: "7\\sqrt{2}", isCorrect: true, rationale: "Mulbindu hote durutto \\sqrt{(-7)^2 + 7^2} = \\sqrt{98} = 7\\sqrt{2}[span_2](start_span)[span_2](end_span)." },
+                    { text: "49", isCorrect: false, rationale: "Borgomul kora hoyni." },
+                    { text: "14", isCorrect: false, rationale: "Eta vul hisab." }
                 ],
                 tags: ["origin", "distance"]
             },
             {
                 questionNumber: 4,
-                question: "যদি $P(1, -1)$ এবং $Q(3, 4)$ হয়, তবে $PQ$ এর দৈর্ঘ্য কত একক?",
+                question: "যদি P(1, -1) এবং Q(3, 4) হয়, তবে PQ এর দৈর্ঘ্য কত একক?",
                 answerOptions: [
-                    { text: "$\\sqrt{29}$", isCorrect: true, rationale: "$PQ = \\sqrt{(3-1)^2 + (4 - (-1))^2} = \\sqrt{2^2 + 5^2} = \\sqrt{4 + 25} = \\sqrt{29}$।" },
-                    { text: "$\\sqrt{13}$", isCorrect: false, rationale: "ভুল অন্তরফল ব্যবহার করা হয়েছে।" },
-                    { text: "$29$", isCorrect: false, rationale: "বর্গমূল বাদ দেওয়া হয়েছে।" },
-                    { text: "$5$", isCorrect: false, rationale: "এটি আংশিক হিসাব।" }
+                    { text: "\\sqrt{29}", isCorrect: true, rationale: "PQ = \\sqrt{(3-1)^2 + (4 - (-1))^2} = \\sqrt{4 + 25} = \\sqrt{29}[span_3](start_span)[span_3](end_span)." },
+                    { text: "\\sqrt{13}", isCorrect: false, rationale: "Vul ontorfol bebohar kora hoyeche." },
+                    { text: "29", isCorrect: false, rationale: "Borgomul bad dewa hoyeche." },
+                    { text: "5", isCorrect: false, rationale: "Eta angshik hisab." }
                 ],
                 tags: ["distance_formula"]
             },
             {
                 questionNumber: 5,
-                question: "$A(1, 1)$ ও $B(-1, -1)$ দুইটি বিন্দু হলে, $AB$ বাহু দ্বারা উৎপন্ন বর্গক্ষেত্রের কর্ণের দৈর্ঘ্য কত একক?",
+                question: "A(1, 1) ও B(-1, -1) দুইটি বিন্দু হলে, AB বাহু দ্বারা উৎপন্ন বর্গক্ষেত্রের কর্ণের দৈর্ঘ্য কত একক?",
                 answerOptions: [
-                    { text: "$2$", isCorrect: false, rationale: "এটি বাহুর দৈর্ঘ্যের ভুল মান।" },
-                    { text: "$4$", isCorrect: true, rationale: "বাহুর দৈর্ঘ্য $AB = \\sqrt{(-1-1)^2 + (-1-1)^2} = \\sqrt{8} = 2\\sqrt{2}$। বর্গক্ষেত্রের কর্ণের দৈর্ঘ্য = $\\sqrt{2} \\times \\text{বাহু} = \\sqrt{2} \\times 2\\sqrt{2} = 4$।" },
-                    { text: "$2\\sqrt{2}$", isCorrect: false, rationale: "এটি শুধু বাহুর দৈর্ঘ্য, কর্ণের দৈর্ঘ্য নয়।" },
-                    { text: "$8$", isCorrect: false, rationale: "এটি কর্ণের বর্গের মান।" }
+                    { text: "2", isCorrect: false, rationale: "Eta bahur doirgher vul man." },
+                    { text: "4", isCorrect: true, rationale: "Bahur doirgho AB = \\sqrt{8} = 2\\sqrt{2}। Borgo khetrer korner doirgho = \\sqrt{2} \\times AB = 4[span_4](start_span)[span_4](end_span)." },
+                    { text: "2\\sqrt{2}", isCorrect: false, rationale: "Eta shudhu bahur doirgho." },
+                    { text: "8", isCorrect: false, rationale: "Eta korner borger man." }
                 ],
                 tags: ["square", "diagonal"]
             },
             {
                 questionNumber: 6,
-                question: "মূলবিন্দু থেকে $(-5, 5)$ ও $(5, p)$ বিন্দুদ্বয় সমদূরবর্তী হলে, $p$ এর মান কত?",
+                question: "মূলবিন্দু থেকে (-5, 5) ও (5, p) বিন্দুদ্বয় সমদূরবর্তী হলে, p এর মান কত?",
                 answerOptions: [
-                    { text: "$\\pm 5$", isCorrect: true, rationale: "মূলবিন্দু থেকে দূরত্ব সমান হওয়ায় $\\sqrt{(-5)^2 + 5^2} = \\sqrt{5^2 + p^2} \\Rightarrow 50 = 25 + p^2 \\Rightarrow p^2 = 25 \\Rightarrow p = \\pm 5$।" },
-                    { text: "$5$", isCorrect: false, rationale: "ঋণাত্মক মানটিও সমভাবে গ্রহণযোগ্য।" },
-                    { text: "$-5$", isCorrect: false, rationale: "ধনাত্মক মানটিও সঠিক।" },
-                    { text: "$25$", isCorrect: false, rationale: "এটি ভুল।" }
+                    { text: "\\pm 5", isCorrect: true, rationale: "Mulbindu theke durutto soman hoyay p^2 = 25 arthat p = \\pm 5[span_5](start_span)[span_5](end_span)." },
+                    { text: "5", isCorrect: false, rationale: "Rinattok mantio somvabe grohonjoggo." },
+                    { text: "-5", isCorrect: false, rationale: "Dhonattok mantio sothik." },
+                    { text: "25", isCorrect: false, rationale: "Eta vul." }
                 ],
                 tags: ["equidistant", "parameter"]
             },
             {
                 questionNumber: 7,
-                question: "অক্ষদ্বয় দ্বারা $(-2, 0)$ ও $(0, 2)$ বিন্দুগামী রেখার খণ্ডিত অংশের দৈর্ঘ্য কত?",
+                question: "অক্ষদ্বয় দ্বারা (-2, 0) ও (0, 2) বিন্দুগামী রেখার খণ্ডিত অংশের দৈর্ঘ্য কত?",
                 answerOptions: [
-                    { text: "$2$", isCorrect: false, rationale: "ভুল মান।" },
-                    { text: "$2\\sqrt{2}$", isCorrect: true, rationale: "খণ্ডিতাংশের দুই প্রান্তবিন্দু $(-2, 0)$ ও $(0, 2)$ এর মধ্যবর্তী দূরত্ব $\\sqrt{(0 - (-2))^2 + (2-0)^2} = \\sqrt{4+4} = \\sqrt{8} = 2\\sqrt{2}$।" },
-                    { text: "$4$", isCorrect: false, rationale: "ভুল হিসাব।" },
-                    { text: "$8$", isCorrect: false, rationale: "ভুল।" }
+                    { text: "2", isCorrect: false, rationale: "Vul man." },
+                    { text: "2\\sqrt{2}", isCorrect: true, rationale: "Khonditansher duii pranto bindur modhovorti durutto \\sqrt{4+4} = 2\\sqrt{2}[span_6](start_span)[span_6](end_span)." },
+                    { text: "4", isCorrect: false, rationale: "Vul hisab." },
+                    { text: "8", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["intercept", "distance"]
             },
             {
                 questionNumber: 8,
-                question: "$2x + 3y - 12 = 0$ সরলরেখাটি x-অক্ষকে কোন বিন্দুতে ছেদ করে?",
+                question: "2x + 3y - 12 = 0 সরলরেখাটি x-অক্ষকে কোন বিন্দুতে ছেদ করে?",
                 answerOptions: [
-                    { text: "$(0, 4)$", isCorrect: false, rationale: "এটি y-অক্ষের ছেদবিন্দু।" },
-                    { text: "$(6, 0)$", isCorrect: true, rationale: "x-অক্ষের উপর y = 0 বসিয়ে পাই, $2x + 3(0) - 12 = 0 \\Rightarrow 2x = 12 \\Rightarrow x = 6$। সুতরাং বিন্দুটি $(6, 0)$।" },
-                    { text: "$(0, 6)$", isCorrect: false, rationale: "স্থানাঙ্কের ক্রম ভুল।" },
-                    { text: "(-6, 0)", isCorrect: false, rationale: "চিহ্নের ভুল।" }
+                    { text: "(0, 4)", isCorrect: false, rationale: "Eta y-akkher chedbindu." },
+                    { text: "(6, 0)", isCorrect: true, rationale: "x-akkher upor y = 0 bosiye x = 6 pai, arthat (6, 0)[span_7](start_span)[span_7](end_span)." },
+                    { text: "(0, 6)", isCorrect: false, rationale: "Sthananker krom vul." },
+                    { text: "(-6, 0)", isCorrect: false, rationale: "Chihner vul." }
                 ],
                 tags: ["straight_line", "intercept"]
             },
             {
                 questionNumber: 9,
-                question: "$A(1, 3)$, $B(3, 2)$ এবং $C(-4, 2)$ শীর্ষবিশিষ্ট $\\triangle ABC$ এর ক্ষেত্রফল কত বর্গ একক?",
+                question: "A(1, 3), B(3, 2) এবং C(-4, 2) শীর্ষবিশিষ্ট triangle ABC এর ক্ষেত্রফল কত বর্গ একক?",
                 answerOptions: [
-                    { text: "$7.5$", isCorrect: false, rationale: "ভুল গণনা।" },
-                    { text: "$15$", isCorrect: true, rationale: "সঠিক স্থানাঙ্ক সূত্রানুযায়ী ক্ষেত্রফল ১৫ বর্গ একক।" },
-                    { text: "$30$", isCorrect: false, rationale: "দুই দ্বারা ভাগ করা হয়নি।" },
-                    { text: "$6$", isCorrect: false, rationale: "ভুল মান।" }
+                    { text: "7.5", isCorrect: false, rationale: "Vul gonona." },
+                    { text: "15", isCorrect: true, rationale: "Sothik sthananko sutranujayi khetrofol 15 borgo ekok[span_8](start_span)[span_8](end_span)." },
+                    { text: "30", isCorrect: false, rationale: "Dui dara vag kora hoyni." },
+                    { text: "6", isCorrect: false, rationale: "Vul man." }
                 ],
                 tags: ["triangle", "area"]
             },
             {
                 questionNumber: 10,
-                question: "$3x + 4y - 12 = 0$ রেখাটি অক্ষদ্বয়ের সাথে যে ত্রিভুজ গঠন করে তার ক্ষেত্রফল কত?",
+                question: "3x + 4y - 12 = 0 রেখাটি অক্ষদ্বয়ের সাথে যে ত্রিভুজ গঠন করে তার ক্ষেত্রফল কত?",
                 answerOptions: [
-                    { text: "$6$", isCorrect: true, rationale: "x-অক্ষের ছেদবিন্দু $(4, 0)$ এবং y-অক্ষের ছেদবিন্দু $(0, 3)$। ক্ষেত্রফল = $\\frac{1}{2} \\times \\text{ভূমি} \\times \\text{উচ্চতা} = \\frac{1}{2} \\times 4 \\times 3 = 6$ বর্গ একক।" },
-                    { text: "$12$", isCorrect: false, rationale: "অর্ধেক করা হয়নি।" },
-                    { text: "$3$", isCorrect: false, rationale: "অতিরিক্ত ভাগ করা হয়েছে।" },
-                    { text: "$24$", isCorrect: false, rationale: "ভুল।" }
+                    { text: "6", isCorrect: true, rationale: "x-akkher chedbindu (4,0) ebong y-akkher (0,3). Khetrofol = 1/2 * 4 * 3 = 6[span_9](start_span)[span_9](end_span)." },
+                    { text: "12", isCorrect: false, rationale: "Ordhok kora hoyni." },
+                    { text: "3", isCorrect: false, rationale: "Otiirikto vag kora hoyeche." },
+                    { text: "24", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["area", "intercept"]
             }
         ];
-          const qPart2 = [
+            const questionsDataPart2 = [
             {
                 questionNumber: 11,
-                question: "মূলবিন্দু থেকে $(0, -7)$ বিন্দুর দূরত্ব কত?",
+                question: "মূলবিন্দু থেকে (0, -7) বিন্দুর দূরত্ব কত?",
                 answerOptions: [
-                    { text: "$-7$", isCorrect: false, rationale: "দূরত্ব ঋণাত্মক হতে পারে না।" },
-                    { text: "$7$", isCorrect: true, rationale: "মূলবিন্দু হতে দূরত্ব $|-7| = 7$ একক।" },
-                    { text: "$\\sqrt{7}$", isCorrect: false, rationale: "বর্গমূলের ভুল প্রয়োগ।" },
-                    { text: "$49$", isCorrect: false, rationale: "এটি বর্গের মান।" }
+                    { text: "-7", isCorrect: false, rationale: "Durutto rinattok hote pare na." },
+                    { text: "7", isCorrect: true, rationale: "Mulbindu hote durutto |-7| = 7 ekok[span_10](start_span)[span_10](end_span)." },
+                    { text: "\\sqrt{7}", isCorrect: false, rationale: "Borgomuler vul proyog." },
+                    { text: "49", isCorrect: false, rationale: "Eta borger man." }
                 ],
                 tags: ["distance", "origin"]
             },
             {
                 questionNumber: 12,
-                question: "$A(k, 4)$ থেকে মূলবিন্দুর দূরত্ব $5$ একক হলে, $k$ এর ধনাত্মক মান কত?",
+                question: "A(k, 4) থেকে মূলবিন্দুর দূরত্ব 5 একক হলে, k এর ধনাত্মক মান কত?",
                 answerOptions: [
-                    { text: "$3$", isCorrect: true, rationale: "$\\sqrt{k^2 + 4^2} = 5 \\Rightarrow k^2 + 16 = 25 \\Rightarrow k^2 = 9 \\Rightarrow k = \\pm 3$। ধনাত্মক মানটি ৩।" },
-                    { text: "$4$", isCorrect: false, rationale: "ভুল মান।" },
-                    { text: "$5$", isCorrect: false, rationale: "এটি দূরত্বের মান।" },
-                    { text: "$9$", isCorrect: false, rationale: "এটি $k^2$ এর মান।" }
+                    { text: "3", isCorrect: true, rationale: "\\sqrt{k^2 + 16} = 5 => k^2 = 9 => k = \\pm 3[span_11](start_span)[span_11](end_span)." },
+                    { text: "4", isCorrect: false, rationale: "Vul man." },
+                    { text: "5", isCorrect: false, rationale: "Eta duruttor man." },
+                    { text: "9", isCorrect: false, rationale: "Eta k^2 er man." }
                 ],
                 tags: ["distance", "parameter"]
             },
             {
                 questionNumber: 13,
-                question: "একটি ত্রিভুজের বাহুর দৈর্ঘ্য যথাক্রমে $3$, $4$, $5$ একক হলে, এর ক্ষেত্রফল কত?",
+                question: "একটি ত্রিভুজের বাহুর দৈর্ঘ্য যথাক্রমে 3, 4, 5 একক হলে, এর ক্ষেত্রফল কত?",
                 answerOptions: [
-                    { text: "$6$", isCorrect: true, rationale: "এটি একটি সমকোণী ত্রিভুজ ($3^2 + 4^2 = 5^2$)। ক্ষেত্রফল = $\\frac{1}{2} \\times 3 \\times 4 = 6$ বর্গ একক।" },
-                    { text: "$12$", isCorrect: false, rationale: "অর্ধেক করা হয়নি।" },
-                    { text: "$10$", isCorrect: false, rationale: "পরিসীমার সাথে গুলিয়ে ফেলা হয়েছে।" },
-                    { text: "$7.5$", isCorrect: false, rationale: "ভুল হিসাব।" }
+                    { text: "6", isCorrect: true, rationale: "Eta ekti somokoni tribhuj (3^2+4^2=5^2). Khetrofol = 1/2 * 3 * 4 = 6[span_12](start_span)[span_12](end_span)." },
+                    { text: "12", isCorrect: false, rationale: "Ordhok kora hoyni." },
+                    { text: "10", isCorrect: false, rationale: "Porsimar sathe guliye fela hoyeche." },
+                    { text: "7.5", isCorrect: false, rationale: "Vul hisab." }
                 ],
                 tags: ["triangle", "area"]
             },
             {
                 questionNumber: 14,
-                question: "$y = 2x - 3$ সরলরেখার ঢাল কত?",
+                question: "y = 2x - 3 সরলরেখার ঢাল কত?",
                 answerOptions: [
-                    { text: "$-3$", isCorrect: false, rationale: "এটি y-অক্ষের ছেদক $c$ এর মান।" },
-                    { text: "$2$", isCorrect: true, rationale: "$y = mx + c$ সমীকরণের সাথে তুলনা করে পাই ঢাল $m = 2$।" },
-                    { text: "$-2$", isCorrect: false, rationale: "চিহ্নের ভুল।" },
-                    { text: "$\\frac{3}{2}$", isCorrect: false, rationale: "ভুল।" }
+                    { text: "-3", isCorrect: false, rationale: "Eta y-akkher chedok c er man." },
+                    { text: "2", isCorrect: true, rationale: "y = mx + c somikoroner sathe tulona kore dhal m = 2[span_13](start_span)[span_13](end_span)." },
+                    { text: "-2", isCorrect: false, rationale: "Chihner vul." },
+                    { text: "\\frac{3}{2}", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["slope", "straight_line"]
             },
             {
                 questionNumber: 15,
-                question: "$(2, 3)$ এবং $(4, 5)$ বিন্দুগামী সরলরেখার ঢাল কত?",
+                question: "(2, 3) এবং (4, 5) বিন্দুগামী সরলরেখার ঢাল কত?",
                 answerOptions: [
-                    { text: "$1$", isCorrect: true, rationale: "ঢাল $m = \\frac{5 - 3}{4 - 2} = \\frac{2}{2} = 1$।" },
-                    { text: "$-1$", isCorrect: false, rationale: "চিহ্নের ভুল।" },
-                    { text: "$2$", isCorrect: false, rationale: "ভুল হিসাব।" },
-                    { text: "$\\frac{1}{2}$", isCorrect: false, rationale: "ভুল।" }
+                    { text: "1", isCorrect: true, rationale: "Dhal m = (5 - 3) / (4 - 2) = 2 / 2 = 1[span_14](start_span)[span_14](end_span)." },
+                    { text: "-1", isCorrect: false, rationale: "Chihner vul." },
+                    { text: "2", isCorrect: false, rationale: "Vul hisab." },
+                    { text: "\\frac{1}{2}", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["slope"]
             },
             {
                 questionNumber: 16,
-                question: "$-\\sqrt{3}$ ঢালবিশিষ্ট সরলরেখাটি x-অক্ষের ধনাত্মক দিকের সাথে কত ডিগ্রি কোণ উৎপন্ন করে?",
+                question: "-\\sqrt{3} ঢালবিশিষ্ট সরলরেখাটি x-অক্ষের ধনাত্মক দিকের সাথে কত ডিগ্রি কোণ উৎপন্ন করে?",
                 answerOptions: [
-                    { text: "$60^{\circ}$", isCorrect: false, rationale: "এটি $\\sqrt{3}$ ঢালের জন্য প্রযোজ্য।" },
-                    { text: "$120^{\circ}$", isCorrect: true, rationale: "$\\tan \\theta = -\\sqrt{3} = -\\tan 60^{\circ} = \\tan(180^{\circ} - 60^{\circ}) = \\tan 120^{\circ}$। সুতরাং $\\theta = 120^{\circ}$।" },
-                    { text: "$150^{\circ}$", isCorrect: false, rationale: "ভুল কোণ।" },
-                    { text: "$30^{\circ}$", isCorrect: false, rationale: "ভুল।" }
+                    { text: "60^{\\circ}", isCorrect: false, rationale: "Eta \\sqrt{3} dhaler jonno projojjo." },
+                    { text: "120^{\\circ}", isCorrect: true, rationale: "\\tan \\theta = -\\sqrt{3} => \\theta = 120^{\circ}[span_15](start_span)[span_15](end_span)." },
+                    { text: "150^{\\circ}", isCorrect: false, rationale: "Vul kon." },
+                    { text: "30^{\\circ}", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["slope", "angle"]
             },
             {
                 questionNumber: 17,
-                question: "$P(1, -1)$, $Q(2, 2)$ এবং $R(4, a)$ বিন্দু তিনটি সমরেখ হলে, $a$ এর মান কত?",
+                question: "P(1, -1), Q(2, 2) এবং R(4, a) বিন্দু তিনটি সমরেখ হলে, a এর মান কত?",
                 answerOptions: [
-                    { text: "$6$", isCorrect: false, rationale: "ভুল হিসাব।" },
-                    { text: "$8$", isCorrect: true, rationale: "PQ এর ঢাল = QR এর ঢাল $\\Rightarrow \\frac{2 - (-1)}{2 - 1} = \\frac{a - 2}{4 - 2} \\Rightarrow \\frac{3}{1} = \\frac{a - 2}{2} \\Rightarrow a - 2 = 6 \\Rightarrow a = 8$।" },
-                    { text: "$4$", isCorrect: false, rationale: "ভুল।" },
-                    { text: "$2$", isCorrect: false, rationale: "ভুল।" }
+                    { text: "6", isCorrect: false, rationale: "Vul hisab." },
+                    { text: "8", isCorrect: true, rationale: "PQ er dhal = QR er dhal somikoron somadhan kore a = 8[span_16](start_span)[span_16](end_span)." },
+                    { text: "4", isCorrect: false, rationale: "Vul." },
+                    { text: "2", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["collinear", "slope"]
             },
             {
                 questionNumber: 18,
-                question: "$x - 3y = 15$ এবং $3x + y = 3$ রেখাদ্বয়ের ঢালদ্বয়ের গুণফল কত?",
+                question: "x - 3y = 15 এবং 3x + y = 3 রেখাদ্বয়ের ঢালদ্বয়ের গুণফল কত?",
                 answerOptions: [
-                    { text: "$1$", isCorrect: false, rationale: "ভুল।" },
-                    { text: "$-1$", isCorrect: true, rationale: "প্রথম রেখার ঢাল $m_1 = \\frac{1}{3}$ এবং দ্বিতীয় রেখার ঢাল $m_2 = -3$। গুণফল = $\\frac{1}{3} \\times (-3) = -1$।" },
-                    { text: "$\\frac{1}{3}$", isCorrect: false, rationale: "ভুল।" },
-                    { text: "$3$", isCorrect: false, rationale: "ভুল।" }
+                    { text: "1", isCorrect: false, rationale: "Vul." },
+                    { text: "-1", isCorrect: true, rationale: "Prothom rekhar dhal 1/3 ebong ditiyor dhal -3. Gunfol = -1[span_17](start_span)[span_17](end_span)." },
+                    { text: "\\frac{1}{3}", isCorrect: false, rationale: "Vul." },
+                    { text: "3", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["slope", "perpendicular"]
             },
@@ -299,34 +299,34 @@
                 questionNumber: 19,
                 question: "ঢাল ঋণাত্মক হলে সরলরেখাটি x-অক্ষের ধনাত্মক দিকের সাথে যে কোণ উৎপন্ন করে তা হলো—",
                 answerOptions: [
-                    { text: "সূক্ষ্মকোণ", isCorrect: false, rationale: "ধনাত্মক ঢালের জন্য সূক্ষ্মকোণ হয়।" },
-                    { text: "স্থূলকোণ", isCorrect: true, rationale: "ঢাল ঋণাত্মক হওয়ার অর্থ $\\tan \\theta < 0$, যা নির্দেশ করে কোণটি $90^{\circ}$ অপেক্ষা বড় অর্থাৎ স্থূলকোণ।" },
-                    { text: "সমকোণ", isCorrect: false, rationale: "সমকোণে ঢাল অসংজ্ঞায়িত।" },
-                    { text: "সরলকোণ", isCorrect: false, rationale: "ভুল।" }
+                    { text: "Sukkokon", isCorrect: false, rationale: "Dhonattok dhaler jonno sukkokon hoy." },
+                    { text: "Sthulkokon", isCorrect: true, rationale: "Dhal rinattok hole konti 90^{\circ} er cheye boro arthat sthulkokon hoy[span_18](start_span)[span_18](end_span)." },
+                    { text: "Somokon", isCorrect: false, rationale: "Somokone dhal osongjoyito." },
+                    { text: "Sorolkokon", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["slope", "angle_nature"]
             },
             {
                 questionNumber: 20,
-                question: "$A(-5, 4)$ ও $B(3, 7)$ বিন্দুগামী রেখার উপর লম্ব রেখার ঢাল কত?",
+                question: "A(-5, 4) ও B(3, 7) বিন্দুগামী রেখার উপর লম্ব রেখার ঢাল কত?",
                 answerOptions: [
-                    { text: "$\\frac{3}{8}$", isCorrect: false, rationale: "এটি মূল রেখার ঢাল।" },
-                    { text: "$-\\frac{8}{3}$", isCorrect: true, rationale: "মূল রেখার ঢাল $m_1 = \\frac{7 - 4}{3 - (-5)} = \\frac{3}{8}$। লম্ব রেখার ঢাল $m_2 = -\\frac{1}{m_1} = -\\frac{8}{3}$।" },
-                    { text: "$\\frac{8}{3}$", isCorrect: false, rationale: "চিহ্নের ভুল।" },
-                    { text: "$-\\frac{3}{8}$", isCorrect: false, rationale: "ব্যস্ত করা হয়নি।" }
+                    { text: "\\frac{3}{8}", isCorrect: false, rationale: "Eta mul rekhar dhal." },
+                    { text: "-\\frac{8}{3}", isCorrect: true, rationale: "Mul rekhar dhal 3/8. Lombo rekhar dhal -8/3[span_19](start_span)[span_19](end_span)." },
+                    { text: "\\frac{8}{3}", isCorrect: false, rationale: "Chihner vul." },
+                    { text: "-\\frac{3}{8}", isCorrect: false, rationale: "Byasto kora hoyni." }
                 ],
                 tags: ["perpendicular", "slope"]
             }
         ];
-          const qPart3 = [
+            const questionsDataPart3 = [
             {
                 questionNumber: 21,
                 question: "চতুর্ভুজের চারটি শীর্ষবিন্দু দ্বারা ক্ষেত্রফল নির্ণয়ের সময় বিন্দুগুলোকে কিভাবে বিবেচনা করা হয়?",
                 answerOptions: [
-                    { text: "ঘড়ির কাঁটার দিকে", isCorrect: false, rationale: "এতে ক্ষেত্রফল ঋণাত্মক বা ভুল আসতে পারে।" },
-                    { text: "ঘড়ির কাঁটার বিপরীত দিকে", isCorrect: true, rationale: "জ্যামিতিক নিয়মে ক্ষেত্রফল সঠিকভাবে পেতে বিন্দুগুলোকে সর্বদা ঘড়ির কাঁটার বিপরীত দিকে (Counter-clockwise) সাজাতে হয়।" },
-                    { text: "যেকোনো অর্ডারে", isCorrect: false, rationale: "অর্ডার উল্টো হলে মান ভুল হবে।" },
-                    { text: "ক্রমানুসারে এলোমেলো", isCorrect: false, rationale: "ভুল।" }
+                    { text: "Ghorir kantar dike", isCorrect: false, rationale: "Ete khetrofol rinattok aaste pare." },
+                    { text: "Ghorir kantar biporit dike", isCorrect: true, rationale: "Jamitik niyome khetrofol sothik pete ghorir kantar biporit dike sajate hoy." },
+                    { text: "Jekono ordare", isCorrect: false, rationale: "Order ulto hole man vul hobe." },
+                    { text: "Kromanushare elomelo", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["polygon", "area_rule"]
             },
@@ -334,32 +334,32 @@
                 questionNumber: 22,
                 question: "যদি কোনো বিন্দুর ভুজ শূন্য হয়, তবে বিন্দুটি কোথায় অবস্থিত?",
                 answerOptions: [
-                    { text: "x-অক্ষের উপর", isCorrect: false, rationale: "x-অক্ষের উপর কোটি শূন্য হয়।" },
-                    { text: "y-অক্ষের উপর", isCorrect: true, rationale: "y-অক্ষের উপর অবস্থিত যেকোনো বিন্দুর ভুজ শূন্য হয় (যেমন: $(0, y)$)।" },
-                    { text: "মূলবিন্দুতে", isCorrect: false, rationale: "মূলবিন্দুতে ভুজ ও কোটি উভয়ই শূন্য।" },
-                    { text: "প্রথম চতুর্ভাগে", isCorrect: false, rationale: "ভুল।" }
+                    { text: "x-akkher upor", isCorrect: false, rationale: "x-akkher upor koti shunno hoy." },
+                    { text: "y-akkher upor", isCorrect: true, rationale: "y-akkher upor obosthito jekono bindur vhuj shunno hoy[span_20](start_span)[span_20](end_span)." },
+                    { text: "Mulbindute", isCorrect: false, rationale: "Mulbindute vhuj o koti uvoy-i shunno." },
+                    { text: "Prothom choturvage", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["coordinate_axis"]
             },
             {
                 questionNumber: 23,
-                question: "$(2, 3)$ বিন্দুটি কোন চতুর্ভাগে অবস্থিত?",
+                question: "(2, 3) বিন্দুটি কোন চতুর্ভাগে অবস্থিত?",
                 answerOptions: [
-                    { text: "প্রথম চতুর্ভাগ", isCorrect: true, rationale: "প্রথম চতুর্ভাগে ভুজ ও কোটি উভয় স্থানাঙ্কই ধনাত্মক (+, +)।" },
-                    { text: "দ্বিতীয় চতুর্ভাগ", isCorrect: false, rationale: "দ্বিতীয় চতুর্ভাগে ভুজ ঋণাত্মক ও কোটি ধনাত্মক।" },
-                    { text: "তৃতীয় চতুর্ভাগ", isCorrect: false, rationale: "তৃতীয় চতুর্ভাগে উভয়ই ঋণাত্মক।" },
-                    { text: "চতুর্থ চতুর্ভাগ", isCorrect: false, rationale: "চতুর্থ চতুর্ভাগে ভুজ ধনাত্মক ও কোটি ঋণাত্মক।" }
+                    { text: "Prothom choturvag", isCorrect: true, rationale: "Prothom choturvage vhuj o koti uvoy-i dhonattok (+, +)[span_21](start_span)[span_21](end_span)." },
+                    { text: "Ditiyo choturvag", isCorrect: false, rationale: "Ditiyo choturvage vhuj rinattok." },
+                    { text: "Tritiyo choturvag", isCorrect: false, rationale: "Tritiyo choturvage uvoy-i rinattok." },
+                    { text: "Choturtho choturvag", isCorrect: false, rationale: "Choturtho choturvage vhuj dhonattok, koti rinattok." }
                 ],
                 tags: ["quadrant"]
             },
             {
                 questionNumber: 24,
-                question: "$2x - 5y - 10 = 0$ সরলরেখার ঢাল কত?",
+                question: "2x - 5y - 10 = 0 সরলরেখার ঢাল কত?",
                 answerOptions: [
-                    { text: "$-\\frac{2}{5}$", isCorrect: false, rationale: "চিহ্নের ভুল।" },
-                    { text: "$\\frac{2}{5}$", isCorrect: true, rationale: "$5y = 2x - 10 \\Rightarrow y = \\frac{2}{5}x - 2$। সুতরাং ঢাল $m = \\frac{2}{5}$।" },
-                    { text: "$-\\frac{5}{2}$", isCorrect: false, rationale: "উল্টো মান।" },
-                    { text: "$\\frac{5}{2}$", isCorrect: false, rationale: "ভুল।" }
+                    { text: "-\\frac{2}{5}", isCorrect: false, rationale: "Chihner vul." },
+                    { text: "\\frac{2}{5}", isCorrect: true, rationale: "y = (2/5)x - 2, dhal m = 2/5[span_22](start_span)[span_22](end_span)." },
+                    { text: "-\\frac{5}{2}", isCorrect: false, rationale: "Ulto man." },
+                    { text: "\\frac{5}{2}", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["slope"]
             },
@@ -367,70 +367,71 @@
                 questionNumber: 25,
                 question: "কোনো ত্রিভুজের তিনটি বাহুর দৈর্ঘ্য সমান হলে তাকে কী বলে?",
                 answerOptions: [
-                    { text: "সমদ্বিবাহু ত্রিভুজ", isCorrect: false, rationale: "এতে দুটি বাহু সমান থাকে।" },
-                    { text: "সমবাহু ত্রিভুজ", isCorrect: true, rationale: "যে ত্রিভুজের তিনটি বাহুই সমান, তাকে সমবাহু ত্রিভুজ বলে।" },
-                    { text: "বিষমবাহু ত্রিভুজ", isCorrect: false, rationale: "এতে কোনো বাহুই সমান নয়।" },
-                    { text: "সমকোণী ত্রিভুজ", isCorrect: false, rationale: "এটি কোণের উপর ভিত্তি করে।" }
+                    { text: "Somotribhuj", isCorrect: false, rationale: "Ete duii bahu soman thake." },
+                    { text: "Somobahu tribhuj", isCorrect: true, rationale: "Je tribhujer tinti bahui soman, take somobahu tribhuj bole." },
+                    { text: "Bishomobahu tribhuj", isCorrect: false, rationale: "Ete kono bahui soman noy." },
+                    { text: "Somokoni tribhuj", isCorrect: false, rationale: "Eta koner upor vittik." }
                 ],
                 tags: ["triangle_types"]
             },
             {
                 questionNumber: 26,
-                question: "$(-3, 2)$ ও $(3, 2)$ বিন্দুগামী রেখার ঢাল কত?",
+                question: "(-3, 2) ও (3, 2) বিন্দুগামী রেখার ঢাল কত?",
                 answerOptions: [
-                    { text: "$\\frac{2}{3}$", isCorrect: false, rationale: "ভুল।" },
-                    { text: "$0$", isCorrect: true, rationale: "ঢাল $m = \\frac{2 - 2}{3 - (-3)} = \\frac{0}{6} = 0$। এটি x-অক্ষের সমান্তরাল একটি সরলরেখা।" },
-                    { text: "অসংজ্ঞায়িত", isCorrect: false, rationale: "এটি y-অক্ষের সমান্তরালের জন্য।" },
-                    { text: "$1$", isCorrect: false, rationale: "ভুল।" }
+                    { text: "\\frac{2}{3}", isCorrect: false, rationale: "Vul." },
+                    { text: "0", isCorrect: true, rationale: "Dhal m = (2 - 2) / (3 - (-3)) = 0[span_23](start_span)[span_23](end_span). Eta x-akkher somantoral." },
+                    { text: "Osongjoyito", isCorrect: false, rationale: "Eta y-akkher jonno hoy." },
+                    { text: "1", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["slope", "horizontal_line"]
             },
             {
                 questionNumber: 27,
-                question: "$A(1, 2)$ ও $B(3, 5)$ বিন্দু দুইটির মধ্যবর্তী দূরত্ব কত?",
+                question: "A(1, 2) ও B(3, 5) বিন্দু দুইটির মধ্যবর্তী দূরত্ব কত?",
                 answerOptions: [
-                    { text: "$\\sqrt{5}$", isCorrect: false, rationale: "ভুল হিসাব।" },
-                    { text: "$\\sqrt{13}$", isCorrect: true, rationale: "দূরত্ব = $\\sqrt{(3-1)^2 + (5-2)^2} = \\sqrt{2^2 + 3^2} = \\sqrt{4 + 9} = \\sqrt{13}$।" },
-                    { text: "$13$", isCorrect: false, rationale: "বর্গমূল করা হয়নি।" },
-                    { text: "$5$", isCorrect: false, rationale: "ভুল।" }
+                    { text: "\\sqrt{5}", isCorrect: false, rationale: "Vul hisab." },
+                    { text: "\\sqrt{13}", isCorrect: true, rationale: "Durutto = \\sqrt{(3-1)^2 + (5-2)^2} = \\sqrt{13}[span_24](start_span)[span_24](end_span)." },
+                    { text: "13", isCorrect: false, rationale: "Borgomul kora hoyni." },
+                    { text: "5", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["distance"]
             },
             {
                 questionNumber: 28,
-                question: "মূলবিন্দু থেকে $P(-2, 2)$ বিন্দুর দূরত্ব কত একক?",
+                question: "মূলবিন্দু থেকে P(-2, 2) বিন্দুর দূরত্ব কত একক?",
                 answerOptions: [
-                    { text: "$2$", isCorrect: false, rationale: "ভুল।" },
-                    { text: "$2\\sqrt{2}$", isCorrect: true, rationale: "দূরত্ব = $\\sqrt{(-2 - 0)^2 + (2 - 0)^2} = \\sqrt{4 + 4} = \\sqrt{8} = 2\\sqrt{2}$।" },
-                    { text: "$4$", isCorrect: false, rationale: "ভুল।" },
-                    { text: "$\\sqrt{2}$", isCorrect: false, rationale: "ভুল।" }
+                    { text: "2", isCorrect: false, rationale: "Vul." },
+                    { text: "2\\sqrt{2}", isCorrect: true, rationale: "Durutto = \\sqrt{(-2)^2 + 2^2} = \\sqrt{8} = 2\\sqrt{2}[span_25](start_span)[span_25](end_span)." },
+                    { text: "4", isCorrect: false, rationale: "Vul." },
+                    { text: "\\sqrt{2}", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["distance", "origin"]
             },
             {
                 questionNumber: 29,
-                question: "একটি সরলরেখা $(2, 2)$ এবং $(4, 1)$ বিন্দু দিয়ে যায় এবং রেখাটির ঢাল যদি $3$ হয়, তবে বিন্দু দুটির সমীকরণ অনুযায়ী অজ্ঞাত মান বের করার ক্ষেত্রে ঢাল $\\frac{t - 2}{2} = 3$ হলে $t$ এর মান কত?",
+                question: "একটি সরলরেখা (2, 2) এবং (4, 1) বিন্দু দিয়ে যায় এবং রেখাটির ঢাল 3 হলে t এর মান কত?",
                 answerOptions: [
-                    { text: "$6$", isCorrect: false, rationale: "এটি আংশিক মান।" },
-                    { text: "$8$", isCorrect: true, rationale: "$\\frac{t - 2}{4 - 2} = 3 \\Rightarrow \\frac{t - 2}{2} = 3 \\Rightarrow t - 2 = 6 \\Rightarrow t = 8$।" },
-                    { text: "$4$", isCorrect: false, rationale: "ভুল।" },
-                    { text: "$10$", isCorrect: false, rationale: "ভুল।" }
+                    { text: "6", isCorrect: false, rationale: "Eta angshik man." },
+                    { text: "8", isCorrect: true, rationale: "(t - 2) / 2 = 3 => t - 2 = 6 => t = 8[span_26](start_span)[span_26](end_span)." },
+                    { text: "4", isCorrect: false, rationale: "Vul." },
+                    { text: "10", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["slope", "parameter"]
             },
             {
                 questionNumber: 30,
-                question: "কোনো সরলরেখার ঢাল $m = \\tan \\theta$ হলে, রেখাটি x-অক্ষের সমান্তরাল হলে ঢাল কত হবে?",
+                question: "কোনো সরলরেখার ঢাল m = \\tan \\theta হলে, রেখাটি x-অক্ষের সমান্তরাল হলে ঢাল কত হবে?",
                 answerOptions: [
-                    { text: "$1$", isCorrect: false, rationale: "এটি ৪৫° কোণের জন্য।" },
-                    { text: "$0$", isCorrect: true, rationale: "x-অক্ষের সাথে সমান্তরাল রেখা কোনো কোণ উৎপন্ন করে না, তাই $\\theta = 0^{\circ}$ এবং $\\tan 0^{\circ} = 0$।" },
-                    { text: "অসংজ্ঞায়িত", isCorrect: false, rationale: "এটি y-অক্ষের সমান্তরালের জন্য।" },
-                    { text: "$-1$", isCorrect: false, rationale: "ভুল।" }
+                    { text: "1", isCorrect: false, rationale: "Eta 45^{\\circ} koner jonno." },
+                    { text: "0", isCorrect: true, rationale: "x-akkher somantoral rekhar khetre \\theta = 0^{\\circ} ebong \\tan 0^{\circ} = 0।" },
+                    { text: "Osongjoyito", isCorrect: false, rationale: "Eta y-akkher somantoraler jonno." },
+                    { text: "-1", isCorrect: false, rationale: "Vul." }
                 ],
                 tags: ["slope", "parallel"]
             }
         ];
-                const questionsData = [...qPart1, ...qPart2, ...qPart3];
+
+        const questionsData = [...questionsDataPart1, ...questionsDataPart2, ...questionsDataPart3];
 
         let currentQuestionIndex = 0;
         let userAnswers = new Array(questionsData.length).fill(null);
@@ -492,7 +493,7 @@
             currentQuestionIndex = index;
             const q = questionsData[index];
             
-            document.getElementById('question-counter').innerText = `প্রশ্ন ${index + 1} / ${questionsData.length}`;
+            document.getElementById('question-counter').innerText = `Proshno ${index + 1} / ${questionsData.length}`;
             document.getElementById('question-tags').innerText = q.tags.join(', ');
             document.getElementById('question-text').innerHTML = q.question;
             
@@ -516,7 +517,7 @@
             });
 
             document.getElementById('prev-btn').disabled = index === 0;
-            document.getElementById('next-btn').innerText = index === questionsData.length - 1 ? "শেষ করুন" : "পরবর্তী";
+            document.getElementById('next-btn').innerText = index === questionsData.length - 1 ? "Shes korun" : "Poroborti";
             
             updateDots();
             
@@ -554,7 +555,12 @@
             document.getElementById('result-screen').classList.remove('hidden');
 
             let score = 0;
-            questionsData.forEach((q, idx) => {
+            questionsData.questionsData ? questionsData.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                if (userAns !== null && q.answerOptions[userAns].isCorrect) {
+                    score++;
+                }
+            }) : questionsData.forEach((q, idx) => {
                 const userAns = userAnswers[idx];
                 if (userAns !== null && q.answerOptions[userAns].isCorrect) {
                     score++;
@@ -562,17 +568,17 @@
             });
 
             const percentage = Math.round((score / questionsData.length) * 100);
-            document.getElementById('score-summary').innerText = `আপনার প্রাপ্ত স্কোর: ${score} / ${questionsData.length} (${percentage}%)`;
+            document.getElementById('score-summary').innerText = `Aponar prapto skoor: ${score} / ${questionsData.length} (${percentage}%)`;
 
             const gradeBadge = document.getElementById('grade-badge');
             if (percentage >= 80) {
-                gradeBadge.innerText = "গ্রেড: A+ (চমৎকার প্রস্তুতি!)";
+                gradeBadge.innerText = "Grade: A+ (Chomotkar prostuti!)";
                 gradeBadge.className = "inline-block px-4 py-1.5 rounded-full text-sm font-bold mt-2 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
             } else if (percentage >= 60) {
-                gradeBadge.innerText = "গ্রেড: B (ভালো প্রস্তুতি)";
+                gradeBadge.innerText = "Grade: B (Valo prostuti)";
                 gradeBadge.className = "inline-block px-4 py-1.5 rounded-full text-sm font-bold mt-2 bg-amber-500/20 text-amber-300 border border-amber-500/30";
             } else {
-                gradeBadge.innerText = "গ্রেড: পুনর্চেষ্টা প্রয়োজন";
+                gradeBadge.innerText = "Grade: Punorcheshta proyojon";
                 gradeBadge.className = "inline-block px-4 py-1.5 rounded-full text-sm font-bold mt-2 bg-rose-500/20 text-rose-300 border border-rose-500/30";
             }
 
@@ -597,21 +603,21 @@
                     optionsHtml += `<div class="text-sm py-1 flex items-start space-x-2">
                         <span class="font-semibold">${String.fromCharCode(65 + optIdx)}.</span>
                         <span class="${badgeClass}">${opt.text}</span>
-                        ${opt.isCorrect ? '<span class="text-xs bg-emerald-600/30 text-emerald-300 px-2 py-0.5 rounded ml-2">সঠিক উত্তর</span>' : ''}
+                        ${opt.isCorrect ? '<span class="text-xs bg-emerald-600/30 text-emerald-300 px-2 py-0.5 rounded ml-2">Sothik uttor</span>' : ''}
                     </div>`;
                 });
 
                 card.innerHTML = `
                     <div class="flex justify-between items-start mb-2">
-                        <span class="text-sm font-bold text-slate-400">প্রশ্ন ${idx + 1}</span>
+                        <span class="text-sm font-bold text-slate-400">Proshno ${idx + 1}</span>
                         <span class="text-xs px-2.5 py-1 rounded-full font-semibold ${isCorrect ? 'bg-emerald-500/20 text-emerald-300' : 'bg-rose-500/20 text-rose-300'}">
-                            ${isCorrect ? 'সঠিক' : 'ভুল / অনুত্তীর্ণ'}
+                            ${isCorrect ? 'Sothik' : 'Vul'}
                         </span>
                     </div>
                     <div class="text-base font-medium text-white mb-3">${q.question}</div>
                     <div class="space-y-1 mb-3 bg-slate-900/50 p-3 rounded-lg">${optionsHtml}</div>
                     <div class="text-xs text-slate-300 bg-slate-800/80 p-3 rounded-lg border border-slate-700">
-                        <strong class="text-indigo-400">ব্যাখ্যা:</strong> ${q.answerOptions.find(o => o.isCorrect)?.rationale || 'ব্যাখ্যা উপলব্ধ নেই।'}
+                        <strong class="text-indigo-400">Byakhya:</strong> ${q.answerOptions.find(o => o.isCorrect)?.rationale || 'Byakhya nei.'}
                     </div>
                 `;
                 reviewContainer.appendChild(card);
@@ -632,4 +638,4 @@
     </script>
 </body>
 </html>
-  
+        
